@@ -27,28 +27,25 @@ function find-latest-remote-image {
         if $(curl --silent -f --head -lL ${url} > /dev/null); then
             # Exists remotely.
             echo "${NAME}"
-            return 0
-        else
-            return 1
         fi
+        return 0
     fi
 
     url=https://hub.docker.com/v2/repositories/${name}/tags/
     tags="$(curl --silent -f -lL ${url})"
 
     if [[ "${tags}" == *\"results\":\[\]\} ]]; then
-        return 1
+        return 0
     fi
 
     tags="$(echo "${tags}" | tr -d '{}[]' | tr ',' '\n' | grep \"name\")"
     if [ -z "${tags}" ]; then
-        return 1
+        return 0
     fi
 
     tags="$(echo $tags | tr -d '"' | sed 's/name://g')"
     tag=$(echo "${tags}" | tr ' ' '\n' | sort -r | head -n 1)
     echo "${NAME}:${tag}"
-    return 0
 }
 
 tag=$(find-latest-remote-image)

@@ -17,20 +17,18 @@ function find-latest-local-image {
         if [ $(docker images -q "${NAME}") ]; then
             # Exists locally.
             echo "${NAME}"
-            return 0
-        else
-            return 1
         fi
+        return 0
     fi
 
     tags=$(docker image ls ${NAME} --format "{{.Tag}}")
     if [ -z "${tags}" ]; then
-        return 1
+        return 0
     fi
 
     if [[ $(echo "${tags}" |grep latest) == latest ]]; then
         echo "${NAME}:latest"
-        exit 0
+        return 0
     fi
 
     tag=$(echo "${tags}" |sort |tail -n 1)
