@@ -4,28 +4,17 @@ This repo defines a tiny Docker image, i.e. `zppz/tiny`, that contains a few bas
 
 For internal projects that constantly, continuously evolve, the best versioning scheme is auto-generated, trivially sortable versions. To this end, datetime-based fixed-length versions are the most obvious choice.
 
-This repo contains two types of commands. The first type runs within a container based on this image. They include
-
-- `make-date-version`
-- `make-datetime-version`
-
-Usage:
+This repo contains two types of commands. The first type of commands reside in [bin/](./bin). These commands run within a container based on this image, because all their dependencies are providied by `busybox`. Example usage:
 
 ```
-$ docker run --rm zppz/tiny:21.01.01 make-date-version
+$ docker run --rm zppz/tiny:21.01.02 make-date-version
 ```
 
-The second type prints out a Bash script that will be used outside of the container. They include
-
-- `find-image`
-- `find-local-image`
-- `find-remote-image`
-
-Usage:
+The second type of commands reside in [tools/](.tools). These commands can not run directly in a container based on this image, because their dependencies go beyond `busybox`. The intended way to use them is to print out their, capture the printout outside of the container, and then run it outside of the container. For example,
 
 ```
-$ cmd="$(docker run --rm zppz/tiny:21.01.01 cat /find-image)"
+$ cmd="$(docker run --rm zppz/tiny:21.01.02 cat /usr/tools/find-image)"
 $ bash -c "${cmd}" -- [args]
 ```
 
-This repo should be fairly stable so that other scripts simply use a particular version of this image (and rarely need to revise the hard-coded version).
+This repo should be fairly stable so that other scripts simply use a particular version of this image, and rarely need to revise the hard-coded version.

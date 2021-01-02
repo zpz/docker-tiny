@@ -12,7 +12,7 @@ if [[ $# > 0 ]]; then
 fi
 
 
-version="$(./make-date-version)"
+version="$(./bin/make-date-version)"
 tag=zppz/tiny:${version}
 
 docker build -t ${tag} .
