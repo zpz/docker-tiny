@@ -12,7 +12,7 @@ This repo contains two types of commands. The first type runs within a container
 Usage:
 
 ```
-$ docker run -it --rm zppz/tiny:21.01.01 make-date-version
+$ docker run --rm zppz/tiny:21.01.01 make-date-version
 ```
 
 The second type prints out a Bash script that will be used outside of the container. They include
@@ -24,7 +24,7 @@ The second type prints out a Bash script that will be used outside of the contai
 Usage:
 
 ```
-$ cmd="$(docker run -it --rm zppz/tiny:21.01.01 cat /find-image)"
+$ cmd="$(docker run --rm zppz/tiny:21.01.01 cat /find-image)"
 $ bash -c "${cmd}" -- [args]
 ```
 
