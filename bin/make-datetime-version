@@ -1,7 +1,13 @@
 #!/bin/sh
 
-echo $(date -u +%Y%m%dT%H%M%SZ)
+# echo $(date -u +%Y%m%dT%H%M%SZ)
 
 # UTC. This command with these arguments work the same
 # on Mac and Linux. Version format is like this:
-#     20180923%081243Z
+#     20180923T081243Z
+
+date +%Y%m%d-%H%M%S
+
+# Local time. This command with these arguments work the same
+# on Mac and Linux. Version format is like this:
+#     20180923-081243

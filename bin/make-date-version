@@ -3,4 +3,4 @@
 # Generate version string in the format
 #     yy.mm.dd
 
-TZ=America/Los_Angeles echo $(date +%y.%m.%d)
+date +%y.%m.%d
