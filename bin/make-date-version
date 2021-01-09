@@ -3,4 +3,4 @@
 # Generate version string in the format
 #     yy.mm.dd
 
-date +%y.%m.%d
+date -u +%y.%m.%d
