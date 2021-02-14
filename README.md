@@ -1,6 +1,6 @@
 # docker-tiny
 
-This repo defines a tiny Docker image, i.e. [`zppz/tiny`](https://hub.docker.com/r/zppz/tiny), that contains a few basic shell sripts and commands used in my Docker workflow.
+This repo defines a tiny Docker image that contains a few basic shell sripts and commands used in my Docker workflow.
 
 For internal projects that constantly, continuously evolve, the best versioning scheme is auto-generated, trivially sortable versions. To this end, datetime-based fixed-length versions are the most obvious choice.
 
@@ -10,7 +10,7 @@ This repo contains two types of commands. The first type of commands reside in [
 $ docker run --rm zppz/tiny:21.01.02 make-date-version
 ```
 
-The second type of commands reside in [tools/](./tools). These commands can not run directly in a container based on this image, because their dependencies go beyond `busybox`. The intended way to use them is to print out their, capture the printout outside of the container, and then run it outside of the container. For example,
+The second type of commands reside in [tools/](./tools). These commands can not run directly in a container based on this image, because their dependencies go beyond `busybox`. The intended way to use them is to print out their code, capture the printout outside of the container, and then run it outside of the container. For example,
 
 ```
 $ cmd="$(docker run --rm zppz/tiny:21.01.02 cat /usr/tools/find-image)"
