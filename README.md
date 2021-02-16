@@ -18,3 +18,5 @@ $ bash -c "${cmd}" -- [args]
 ```
 
 This repo should be fairly stable so that other scripts simply use a particular version of this image, and rarely need to revise the hard-coded version.
+
+Please see [docker](https://github.com/zpz/docker) for more info.
