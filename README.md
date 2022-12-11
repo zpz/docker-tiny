@@ -14,7 +14,7 @@ The second type of commands reside in [tools/](./tools). These commands can not 
 
 ```
 $ cmd="$(docker run --rm zppz/tiny:22.12.11 cat /tools/find-image)"
-$ bash -c "${cmd}" -- [args]
+$ bash -c "${cmd}" -- <args>
 ```
 
 This repo should be fairly stable so that other scripts simply use a particular version of this image, and rarely need to revise the hard-coded version.
