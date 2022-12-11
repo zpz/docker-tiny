@@ -13,10 +13,12 @@ $ docker run --rm zppz/tiny:21.01.02 make-date-version
 The second type of commands reside in [tools/](./tools). These commands can not run directly in a container of this image, because their dependencies go beyond `busybox`. The intended way to use them is to print out their code, capture the printout outside of the container, and then run it outside of the container. For example,
 
 ```
-$ cmd="$(docker run --rm zppz/tiny:21.01.02 cat /usr/tools/find-image)"
+$ cmd="$(docker run --rm zppz/tiny:21.01.02 cat /tools/find-image)"
 $ bash -c "${cmd}" -- [args]
 ```
 
 This repo should be fairly stable so that other scripts simply use a particular version of this image, and rarely need to revise the hard-coded version.
 
 Please see [docker](https://github.com/zpz/docker) for more info.
+
+The latest build is `zppz/tiny:22.12.11`.
