@@ -1,5 +1,7 @@
 # docker-tiny
 
+**UPDATE (2025-09-09): This project has been superseded by [`minidocker](https://github.com/zpz/minidocker). It will be archived and possibly deleted altogether.**
+
 This repo defines a tiny Docker image that contains a few basic shell sripts and commands used in my Docker workflow.
 
 For internal projects that constantly, continuously evolve, the best versioning scheme is auto-generated, trivially sortable versions. To this end, datetime-based fixed-length versions are the most obvious choice.
